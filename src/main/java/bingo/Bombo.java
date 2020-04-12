@@ -6,6 +6,7 @@
 package bingo;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
@@ -22,11 +23,24 @@ public class Bombo {
         }
     }
 
-    private void LlenarBombo() { // Este metodo elimina los elementos serstantes de la arrayList y los rellena de nuevo.
+    private void llenarBombo() { // Este metodo elimina los elementos restantes de la arrayList y los rellena de nuevo.
         this.bombo.clear();
         for (int i = 1; i < 91; i++) {
             this.bombo.add(i);
         }
+    }
+
+    private Integer sacarBola() {
+        //Este metodo nos permite sacar bolas del bombo asta que se quede vacio
+        if (this.bombo.size() > 0) {  //Con este if controlamos si la arrayList no esta vacia se ejecuta el metodo.
+            Random alea = new Random();
+            int aux = this.bombo.size();
+            int aux2 = alea.nextInt(aux);
+            return this.bombo.remove(aux2);
+        } else { // Si esta vacia devuelve un 0 lo que me indica que el bombo esta vacio.
+            return 0;
+        }
+
     }
 
     public ArrayList<Integer> getBombo() {
@@ -41,5 +55,14 @@ public class Bombo {
     public String toString() {
         return "Bombo{" + "bombo=" + bombo + '}';
     }
-
+// PRUEBAS
+//    public static void main(String[] args) {
+//        Bombo bom = new Bombo();
+//        do {
+//            System.out.println(bom.sacarBola());
+//            System.out.println(bom.toString());
+//            System.out.println("--------------------------------------");
+//        } while (bom.getBombo().size() != 0);
+//
+//    }
 }
