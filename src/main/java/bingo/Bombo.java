@@ -42,6 +42,16 @@ public class Bombo {
         }
 
     }
+    
+    private String comprobarBombo(){ //Este metodo nos devuelve el numero de volas que queda en el bombo.
+        //Y si no hay bolas nos dice que no quedan bolas.
+        if(this.bombo.size() > 0){
+            return "No quedan volas en el bombo";
+        }else {
+            return "Quedan "+this.bombo.size()+" bolas en el bombo";
+        }
+        
+    }
 
     public ArrayList<Integer> getBombo() {
         return bombo;
