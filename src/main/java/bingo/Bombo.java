@@ -12,10 +12,18 @@ import java.util.ArrayList;
  * @author Maksim
  */
 public class Bombo {
-    ArrayList<Integer> bombo;
+
+    private ArrayList<Integer> bombo;
 
     public Bombo() {
-        this.bombo  = new ArrayList<Integer>();//El bombo sera una array list de la que iremos sacando los numeros.
+        this.bombo = new ArrayList<Integer>();//El bombo sera una array list de la que iremos sacando los numeros.
+        for (int i = 1; i < 91; i++) {
+            this.bombo.add(i);
+        }
+    }
+
+    private void LlenarBombo() { // Este metodo elimina los elementos serstantes de la arrayList y los rellena de nuevo.
+        this.bombo.clear();
         for (int i = 1; i < 91; i++) {
             this.bombo.add(i);
         }
@@ -33,5 +41,5 @@ public class Bombo {
     public String toString() {
         return "Bombo{" + "bombo=" + bombo + '}';
     }
-    
+
 }
