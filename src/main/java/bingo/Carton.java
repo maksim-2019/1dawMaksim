@@ -23,22 +23,22 @@ public class Carton {
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
                 if (j == 0) {
-                    if (i > 0) {
-                        matriz[0][0] = 0;
-//                        if (matriz[i - 1][j] == 9 || matriz[i - 1][j] == 0) {
-//                            matriz[i][j] = 0;
-//                        } else 
-                        if (i == 1 && matriz[i - 1][0] == 0) {
+                    if (i >= 0) {
+                        if (i == 0 && j == 0) {
+                            int num2 = alea.nextInt(2);
+                            if (num2 == 0) {
+                                matriz[i][j] = 0;
+                            } else {
+                                matriz[i][j] = alea.nextInt(8) + 1;
+                            }
+                        } else if (i == 1 && matriz[i - 1][0] == 0) {
                             matriz[i][j] = alea.nextInt(8) + 1;
-                        } else if (i == 2 && matriz[i - 1][0] > 1) {
+                        } else if (i == 2 && matriz[i - 1][0] > 1 && matriz[i - 2][0] > 1) {
                             matriz[i][j] = 0;
                         } else {
                             int num = matriz[i - 1][j] + 1;
                             matriz[i][j] = alea.nextInt(9 - num + 1) + num;
                         }
-                    } else {
-                        matriz[i][j] = alea.nextInt(8);
-                        System.out.println("------------");
                     }
 
                 }
@@ -67,7 +67,7 @@ public class Carton {
         ale.generarCarton();
         for (int i = 0; i < ale.getMatriz().length; i++) {
             for (int j = 0; j < ale.getMatriz()[i].length; j++) {
-                System.out.print(ale.getMatriz()[i][j]);
+                System.out.print(ale.getMatriz()[i][j] + "-");
             }
             System.out.println("\n--------------");
         }
