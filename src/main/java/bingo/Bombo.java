@@ -23,14 +23,14 @@ public class Bombo {
         }
     }
 
-    private void llenarBombo() { // Este metodo elimina los elementos restantes de la arrayList y los rellena de nuevo.
+    public void llenarBombo() { // Este metodo elimina los elementos restantes de la arrayList y los rellena de nuevo.
         this.bombo.clear();
         for (int i = 1; i < 91; i++) {
             this.bombo.add(i);
         }
     }
 
-    private Integer sacarBola() {
+    public Integer sacarBola() {
         //Este metodo nos permite sacar bolas del bombo asta que se quede vacio
         if (this.bombo.size() > 0) {  //Con este if controlamos si la arrayList no esta vacia se ejecuta el metodo.
             Random alea = new Random();
@@ -43,7 +43,7 @@ public class Bombo {
 
     }
     
-    private String comprobarBombo(){ //Este metodo nos devuelve el numero de volas que queda en el bombo.
+    public String comprobarBombo(){ //Este metodo nos devuelve el numero de volas que queda en el bombo.
         //Y si no hay bolas nos dice que no quedan bolas.
         if(this.bombo.size() > 0){
             return "No quedan volas en el bombo";

@@ -340,7 +340,6 @@ public class Carton {
                 } while (aux[1][num2] == 0);// este do while lo que hara es que controlar que la posicion no sea un 0
                 aux[1][num2] = 0;// y a continuacion se establece la posicion elegida a 0.
                 fila2--;
-                System.out.println("hola1");
             }
 
         }
@@ -354,23 +353,29 @@ public class Carton {
                 } while (aux[2][num2] == 0);
                 aux[2][num2] = 0;
                 fila3--;
-                System.out.println("hola1");
             }
         }
     }
 
-    public void tacharCasilla(ArrayList<Integer> lista, int num) {
+    public boolean tacharCasilla(ArrayList<Integer> lista, int num) {
+        boolean esta = false;
         // un metodo sencillo que añade a una array list el numero que le pasamos si se encuentra en la matriz.
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
                 if (num == matriz[i][j]) {
                     lista.add(num);
+                    esta = true;
                 }
             }
         }
+        if (esta == true) {
+            return true;
+        } else {
+            return false;
+        }
     }
-    
-    public void combrobarLinea(ArrayList<Integer> lista){
+
+    public void combrobarLinea(ArrayList<Integer> lista) {
         int fila1 = 0;
         int fila2 = 0;
         int fila3 = 0;
@@ -378,37 +383,37 @@ public class Carton {
         for (int i = 0; i < lista.size(); i++) {
             for (int j = 0; j < matriz.length; j++) {
                 for (int k = 0; k < matriz[j].length; k++) {
-                    if (j == 0 && lista.get(i) == matriz[j][k]){
+                    if (j == 0 && lista.get(i) == matriz[j][k]) {
                         //Dependiendo en que fila el numero sea igual se suma 1 a la variable de fila1 o fila2 o fila3
                         fila1++;
-                    } else if(j == 1 && lista.get(i) == matriz[j][k]){
+                    } else if (j == 1 && lista.get(i) == matriz[j][k]) {
                         fila2++;
-                    } else if(j == 2 && lista.get(i) == matriz[j][k]){
+                    } else if (j == 2 && lista.get(i) == matriz[j][k]) {
                         fila3++;
                     }
                 }
             }
         }
         //Luego de eso si alguna de las filas tiene 5 numeros significa tienes linea 
-        if(fila1 == 5){
+        if (fila1 == 5) {
             System.out.println("Tienes linea en la fila 1");
         }
-        if(fila2 == 5){
+        if (fila2 == 5) {
             System.out.println("Tienes linea en la fila 2");
         }
-        if(fila3 == 5){
+        if (fila3 == 5) {
             System.out.println("Tienes linea en la fila 3");
         }
     }
-    
-    public void comprobarBingo(ArrayList<Integer> lista){
+
+    public void comprobarBingo(ArrayList<Integer> lista) {
         int contador = 0;
         //Este triple for recorre uno a uno todos los numeros de la arrayList
         //y comprueba si estan en la matriz, si esta suma 1 al contador.
         for (int i = 0; i < lista.size(); i++) {
             for (int j = 0; j < matriz.length; j++) {
                 for (int k = 0; k < matriz[j].length; k++) {
-                    if (lista.get(i) == matriz[j][k]){
+                    if (lista.get(i) == matriz[j][k]) {
                         //Dependiendo en que fila el numero sea igual se suma 1 a la variable de fila1 o fila2 o fila3
                         contador++;
                     }
@@ -416,27 +421,27 @@ public class Carton {
             }
         }
         //Si tenemos 15 en el contador significa que tenemos bingo.
-        if(contador >= 15){
-            System.out.println(   "\n|    __________________"
-                                + "\n|   |                  |"
-                                + "\n|   |    -----------   |"
-                                + "\n|   |       BINGO      |"
-                                + "\n|   |    FELICIDADES   |"
-                                + "\n|   |    -----------   |"
-                                + "\n|   |__________________|");
+        if (contador >= 15) {
+            System.out.println("\n|    __________________"
+                             + "\n|   |                  |"
+                             + "\n|   |    -----------   |"
+                             + "\n|   |       BINGO      |"
+                             + "\n|   |    FELICIDADES   |"
+                             + "\n|   |    -----------   |"
+                             + "\n|   |__________________|");
         }
     }
-
-    public static void main(String[] args) {
-        Carton ale = new Carton();
-        ale.generarCarton();
-        System.out.println("\n-----------------------------------------------------------------------------------------------------------------------------------------");
-
-        for (int i = 0; i < ale.getMatriz().length; i++) {
-            for (int j = 0; j < ale.getMatriz()[i].length; j++) {
-                System.out.print(ale.getMatriz()[i][j] + "\t|\t");
-            }
-            System.out.println("\n-----------------------------------------------------------------------------------------------------------------------------------------");
-        }
-    }
+    //PRUEBAS
+//    public static void main(String[] args) {
+//        Carton ale = new Carton();
+//        ale.generarCarton();
+//        System.out.println("\n-----------------------------------------------------------------------------------------------------------------------------------------");
+//
+//        for (int i = 0; i < ale.getMatriz().length; i++) {
+//            for (int j = 0; j < ale.getMatriz()[i].length; j++) {
+//                System.out.print(ale.getMatriz()[i][j] + "\t|\t");
+//            }
+//            System.out.println("\n-----------------------------------------------------------------------------------------------------------------------------------------");
+//        }
+//    }
 }
