@@ -406,7 +406,7 @@ public class Carton {
         }
     }
 
-    public void comprobarBingo(ArrayList<Integer> lista) {
+    public boolean comprobarBingo(ArrayList<Integer> lista) {
         int contador = 0;
         //Este triple for recorre uno a uno todos los numeros de la arrayList
         //y comprueba si estan en la matriz, si esta suma 1 al contador.
@@ -421,14 +421,11 @@ public class Carton {
             }
         }
         //Si tenemos 15 en el contador significa que tenemos bingo.
-        if (contador >= 15) {
-            System.out.println("\n|    __________________"
-                             + "\n|   |                  |"
-                             + "\n|   |    -----------   |"
-                             + "\n|   |       BINGO      |"
-                             + "\n|   |    FELICIDADES   |"
-                             + "\n|   |    -----------   |"
-                             + "\n|   |__________________|");
+        
+        if(contador < 15){
+            return false;
+        } else{
+            return true;
         }
     }
     //PRUEBAS
