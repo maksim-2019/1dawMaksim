@@ -65,7 +65,7 @@ public class Bombo {
     public String toString() {
         return "Bombo{" + "bombo=" + bombo + '}';
     }
-// PRUEBAS
+ //PRUEBAS
 //    public static void main(String[] args) {
 //        Bombo bom = new Bombo();
 //        do {
