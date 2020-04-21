@@ -44,7 +44,7 @@ public class Carton {
                                 matriz[i][j] = 0;
                             }
                             break;//Y aqui se corta este switch y para a la siguiente iteracion del bucle.
-                            //El resto del codigo del switch es identico solo cambia el rango de los numeros.
+                        //El resto del codigo del switch es identico solo cambia el rango de los numeros.
                         case 1:
                             if (i == 0) {
                                 matriz[i][j] = alea.nextInt(19 - 10 + 1) + 10;
@@ -57,7 +57,7 @@ public class Carton {
                             } else {
                                 matriz[i][j] = 0;
                             }
-                            
+
                             break;
                         case 2:
                             if (i == 0) {
@@ -71,7 +71,7 @@ public class Carton {
                             } else {
                                 matriz[i][j] = 0;
                             }
-                            
+
                             break;
                         case 3:
                             if (i == 0) {
@@ -85,7 +85,7 @@ public class Carton {
                             } else {
                                 matriz[i][j] = 0;
                             }
-                            
+
                             break;
                         case 4:
                             if (i == 0) {
@@ -99,7 +99,7 @@ public class Carton {
                             } else {
                                 matriz[i][j] = 0;
                             }
-                            
+
                             break;
                         case 5:
                             if (i == 0) {
@@ -113,7 +113,7 @@ public class Carton {
                             } else {
                                 matriz[i][j] = 0;
                             }
-                            
+
                             break;
                         case 6:
                             if (i == 0) {
@@ -127,7 +127,7 @@ public class Carton {
                             } else {
                                 matriz[i][j] = 0;
                             }
-                            
+
                             break;
                         case 7:
                             if (i == 0) {
@@ -141,7 +141,7 @@ public class Carton {
                             } else {
                                 matriz[i][j] = 0;
                             }
-                            
+
                             break;
                         case 8:
                             if (i == 0) {
@@ -155,7 +155,7 @@ public class Carton {
                             } else {
                                 matriz[i][j] = 0;
                             }
-                            
+
                             break;
                     }
                 }
@@ -201,7 +201,6 @@ public class Carton {
         ponerCero(matriz);
 
     }
-
 
     public int[][] getMatriz() {
         return matriz;
@@ -276,7 +275,7 @@ public class Carton {
                 }
             }
         } while (fila1 != 5);//repite lo anterior hasta que fila1 tenga 5 numeros
-        
+
         //este pequeño for ordena los numeros de menor a mallor por columnas.
         for (int i = 0; i < 9; i++) {
             if (aux[2][i] != 0 && aux[1][i] > aux[2][i]) {
@@ -359,15 +358,43 @@ public class Carton {
             }
         }
     }
-    
-    public void tacharCasilla(ArrayList lista, int num){
+
+    public void tacharCasilla(ArrayList<Integer> lista, int num) {
         // un metodo sencillo que añade a una array list el numero que le pasamos si se encuentra en la matriz.
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
-                if(num == matriz[i][j]){
+                if (num == matriz[i][j]) {
                     lista.add(num);
                 }
             }
+        }
+    }
+    
+    public void combrobarLinea(ArrayList<Integer> lista){
+        int fila1 = 0;
+        int fila2 = 0;
+        int fila3 = 0;
+        for (int i = 0; i < lista.size(); i++) {
+            for (int j = 0; j < matriz.length; j++) {
+                for (int k = 0; k < matriz[j].length; k++) {
+                    if (j == 0 && lista.get(i) == matriz[j][k]){
+                        fila1++;
+                    } else if(j == 1 && lista.get(i) == matriz[j][k]){
+                        fila2++;
+                    } else if(j == 2 && lista.get(i) == matriz[j][k]){
+                        fila3++;
+                    }
+                }
+            }
+        }
+        if(fila1 == 5){
+            System.out.println("Tienes linea en la fila 1");
+        }
+        if(fila2 == 5){
+            System.out.println("Tienes linea en la fila 2");
+        }
+        if(fila3 == 5){
+            System.out.println("Tienes linea en la fila 3");
         }
     }
 
@@ -375,7 +402,7 @@ public class Carton {
         Carton ale = new Carton();
         ale.generarCarton();
         System.out.println("\n-----------------------------------------------------------------------------------------------------------------------------------------");
-        
+
         for (int i = 0; i < ale.getMatriz().length; i++) {
             for (int j = 0; j < ale.getMatriz()[i].length; j++) {
                 System.out.print(ale.getMatriz()[i][j] + "\t|\t");
