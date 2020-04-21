@@ -374,10 +374,12 @@ public class Carton {
         int fila1 = 0;
         int fila2 = 0;
         int fila3 = 0;
+        //Este metodo recore la array list y a la vez recore toda la matriz buscando si los numeros son iguales.
         for (int i = 0; i < lista.size(); i++) {
             for (int j = 0; j < matriz.length; j++) {
                 for (int k = 0; k < matriz[j].length; k++) {
                     if (j == 0 && lista.get(i) == matriz[j][k]){
+                        //Dependiendo en que fila el numero sea igual se suma 1 a la variable de fila1 o fila2 o fila3
                         fila1++;
                     } else if(j == 1 && lista.get(i) == matriz[j][k]){
                         fila2++;
@@ -387,6 +389,7 @@ public class Carton {
                 }
             }
         }
+        //Luego de eso si alguna de las filas tiene 5 numeros significa tienes linea 
         if(fila1 == 5){
             System.out.println("Tienes linea en la fila 1");
         }
@@ -395,6 +398,32 @@ public class Carton {
         }
         if(fila3 == 5){
             System.out.println("Tienes linea en la fila 3");
+        }
+    }
+    
+    public void comprobarBingo(ArrayList<Integer> lista){
+        int contador = 0;
+        //Este triple for recorre uno a uno todos los numeros de la arrayList
+        //y comprueba si estan en la matriz, si esta suma 1 al contador.
+        for (int i = 0; i < lista.size(); i++) {
+            for (int j = 0; j < matriz.length; j++) {
+                for (int k = 0; k < matriz[j].length; k++) {
+                    if (lista.get(i) == matriz[j][k]){
+                        //Dependiendo en que fila el numero sea igual se suma 1 a la variable de fila1 o fila2 o fila3
+                        contador++;
+                    }
+                }
+            }
+        }
+        //Si tenemos 15 en el contador significa que tenemos bingo.
+        if(contador >= 15){
+            System.out.println(   "\n|    __________________"
+                                + "\n|   |                  |"
+                                + "\n|   |    -----------   |"
+                                + "\n|   |       BINGO      |"
+                                + "\n|   |    FELICIDADES   |"
+                                + "\n|   |    -----------   |"
+                                + "\n|   |__________________|");
         }
     }
 
