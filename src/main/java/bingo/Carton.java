@@ -379,6 +379,9 @@ public class Carton {
         int fila1 = 0;
         int fila2 = 0;
         int fila3 = 0;
+        boolean fila11 = false;
+        boolean fila22 = false;
+        boolean fila33 = false;
         //Este metodo recore la array list y a la vez recore toda la matriz buscando si los numeros son iguales.
         for (int i = 0; i < lista.size(); i++) {
             for (int j = 0; j < matriz.length; j++) {
@@ -395,14 +398,17 @@ public class Carton {
             }
         }
         //Luego de eso si alguna de las filas tiene 5 numeros significa tienes linea 
-        if (fila1 == 5) {
+        if (fila1 == 5 && fila11 == false) {
             System.out.println("Tienes linea en la fila 1");
+            fila11 = true;
         }
-        if (fila2 == 5) {
+        if (fila2 == 5 && fila22 == false) {
             System.out.println("Tienes linea en la fila 2");
+            fila22 = true;
         }
-        if (fila3 == 5) {
+        if (fila3 == 5 && fila33 == false) {
             System.out.println("Tienes linea en la fila 3");
+            fila33 = true;
         }
     }
 
