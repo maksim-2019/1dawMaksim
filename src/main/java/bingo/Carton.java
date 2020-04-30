@@ -357,7 +357,7 @@ public class Carton {
         }
     }
 
-    public boolean tacharCasilla(ArrayList<Integer> lista, int num) {
+    public boolean tacharCasilla(ArrayList<Integer> lista, int num, boolean[][] matriz2) {
         boolean esta = false;
         // un metodo sencillo que añade a una array list el numero que le pasamos si se encuentra en la matriz.
         for (int i = 0; i < matriz.length; i++) {
@@ -365,6 +365,7 @@ public class Carton {
                 if (num == matriz[i][j]) {
                     lista.add(num);
                     esta = true;
+                    matriz2[i][j] = false;
                 }
             }
         }

@@ -20,8 +20,9 @@ public class JuegoBingo {
         ArrayList<Integer> lista = new ArrayList<Integer>();
         boolean tachar;
         boolean bingo = false;
-        
-        //Creamos el carton
+        // Crearemos una matriz con la que sabremos que numeros estan en 0 y cuales no
+        boolean matriz[][] = new boolean[3][9]; //true sera el numero normal y false el numero "0" o los nuymeros tachados.
+         //Creamos el carton
         carton.generarCarton();
         System.out.println("\n-----------------------------------------------------------------------------------------------------------------------------------------");
         for (int i = 0; i < carton.getMatriz().length; i++) {
@@ -30,17 +31,42 @@ public class JuegoBingo {
             }
             System.out.println("\n-----------------------------------------------------------------------------------------------------------------------------------------");
         }
-        
+        //rellenamos la matriz con true o false dependiendo de si tenemos o no un 0 en esa posicion.
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                if(carton.getMatriz()[i][j] == 0){
+                    matriz[i][j] = false;
+                } else{
+                    matriz[i][j] = true;
+                }
+            }
+        }
+        //Mostramos la matriz.
+        System.out.println("\n-----------------------------------------------------------------------------------------------------------------------------------------");
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                System.out.print(matriz[i][j] + "\t|\t");
+            }
+            System.out.println("\n-----------------------------------------------------------------------------------------------------------------------------------------");
+        }
         do{
         System.out.println(" ");
         bola = bombo.sacarBola();
         //Sacamos bola y la mostramos.
         System.out.println("Has sacado la bola: " + bola);
         //Comprobamos si podemos tachar un numero
-        tachar = carton.tacharCasilla(lista, bola);
+        tachar = carton.tacharCasilla(lista, bola, matriz);
         //Mostramos el numero tachado.
         if(tachar == true){
-            System.out.println("Has tachado el numero.");
+            System.out.println("Has tachado el numero: "+ bola);
+            //Cada vez que se tache el numero se mostrara la matriz actualizada
+            System.out.println("\n-----------------------------------------------------------------------------------------------------------------------------------------");
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                System.out.print(matriz[i][j] + "\t|\t");
+            }
+            System.out.println("\n-----------------------------------------------------------------------------------------------------------------------------------------");
+        }
         }
         //Comprobamos si tenemos linea.
         carton.combrobarLinea(lista);
