@@ -28,13 +28,9 @@ public abstract class Carton {
     
     public abstract void generarCarton();
     
-    public boolean esLinea(int numeroFila){
-        return true;
-    }
+    public abstract boolean esLinea(int numeroFila);
     
-    public boolean esBingo(){
-        return true;
-    }
+    public abstract boolean esBingo();
 
     public int[][] getMatriz() {
         return matriz;

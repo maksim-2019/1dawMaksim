@@ -11,4 +11,13 @@ package Bingo2;
  */
 public final class BomboAmericano extends Bombo{
     private static final int cantidadBolas = 75;
+
+    public BomboAmericano() {
+        super();
+    }
+
+    @Override
+    public void llenarBombo() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

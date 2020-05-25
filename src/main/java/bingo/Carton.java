@@ -369,11 +369,7 @@ public class Carton {
                 }
             }
         }
-        if (esta == true) {
-            return true;
-        } else {
-            return false;
-        }
+        return (esta)?true:false;
     }
 
     public void combrobarLinea(ArrayList<Integer> lista) {

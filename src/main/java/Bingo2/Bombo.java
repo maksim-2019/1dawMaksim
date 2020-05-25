@@ -5,12 +5,14 @@
  */
 package Bingo2;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Maksim
  */
 public abstract class Bombo {
-    private int[] listaBolas;
+    private ArrayList<Integer> listaBolas;
 
     public Bombo() {
     }
@@ -19,9 +21,7 @@ public abstract class Bombo {
         return 1;
     }
     
-    public void llenarBombo(){
-    
-    }
+    public abstract void llenarBombo();
     
     public int bolaDentro(){
         return 1;

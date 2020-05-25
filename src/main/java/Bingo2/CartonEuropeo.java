@@ -27,6 +27,16 @@ public final class CartonEuropeo extends Carton{
     public String toString() {
         return "CartonEuropeo{" + '}';
     }
+
+    @Override
+    public boolean esLinea(int numeroFila) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean esBingo() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 }
