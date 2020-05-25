@@ -44,16 +44,6 @@ public final class CartonAmericano extends Carton {
         for (int i = 0; i < casillas.size(); i++) {
             super.getMatriz()[(int) casillas.get(i).getX()][(int) casillas.get(i).getY()] = 0;
         }
-        
-        for (int i = 0; i < super.getMatriz().length; i++) {
-            for (int j = 0; j < super.getMatriz()[i].length; j++) {
-                System.out.print(super.getMatriz()[i][j] + "\t|\t");
-            }
-            System.out.println("\n----------------------------------------------------------------------");
-        }
-
-        
-
     }
 
     private static Patron genPatron() {
