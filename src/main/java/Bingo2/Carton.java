@@ -22,8 +22,14 @@ public abstract class Carton {
         this.columnas = columnas;
     }
     
-    public Point tacharNumero(int numero){
-        return new Point();
+    public void tacharNumero(int numero){
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                if(matriz[i][j] == numero){
+                    matriz[i][j] = 0;
+                }
+            }
+        }
     }
     
     public abstract void generarCarton();

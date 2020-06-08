@@ -15,19 +15,33 @@ public abstract class Bombo {
     private ArrayList<Integer> listaBolas;
 
     public Bombo() {
+        listaBolas = new ArrayList<>();
     }
     
     public int sacarBola(){
-        return 1;
+        return listaBolas.remove(0);
     }
     
     public abstract void llenarBombo();
     
     public int bolaDentro(){
-        return 1;
+        return listaBolas.size();
+    }
+
+    public ArrayList<Integer> getListaBolas() {
+        return listaBolas;
     }
     
     public boolean vacio(){
-        return true;
+        return listaBolas.isEmpty();
+    }
+    
+    @Override
+    public String toString() {
+        String b = "";
+        for (int i = 0; i < listaBolas.size(); i++) {
+            b += listaBolas.get(i) + ",";
+        }
+        return b;
     }
 }

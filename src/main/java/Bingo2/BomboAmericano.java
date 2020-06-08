@@ -5,6 +5,8 @@
  */
 package Bingo2;
 
+import java.util.Collections;
+
 /**
  *
  * @author Maksim
@@ -18,6 +20,16 @@ public final class BomboAmericano extends Bombo{
 
     @Override
     public void llenarBombo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for (int i = 0; i < cantidadBolas; i++) {
+            super.getListaBolas().add(i + 1);
+        }
+        Collections.shuffle(super.getListaBolas());
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+    
+    
 }
