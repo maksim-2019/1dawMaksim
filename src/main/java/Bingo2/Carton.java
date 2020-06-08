@@ -64,7 +64,14 @@ public abstract class Carton {
 
     @Override
     public String toString() {
-        return "Carton{" + "matriz=" + matriz + ", filas=" + filas + ", columnas=" + columnas + '}';
+        String tmp = "";
+        for (int i = 0; i < this.matriz.length; i++) {
+            for (int j = 0; j < this.matriz[i].length; j++) {
+                tmp += this.matriz[i][j] + "\t";
+            }
+            tmp += "\n";
+        }
+        return tmp;
     }
     
 }

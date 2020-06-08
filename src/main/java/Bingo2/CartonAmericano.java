@@ -48,7 +48,7 @@ public final class CartonAmericano extends Carton {
 
     private static Patron genPatron() {
         Random alea = new Random();
-        
+
         switch (alea.nextInt(5)) {
             case 0:
                 return Patron.CARTON_4PUNTOS;
@@ -66,7 +66,6 @@ public final class CartonAmericano extends Carton {
                 return Patron.CARTON_LLENO;
         }
     }
-
 
     private static boolean numRepetido(int aux, int numColum, int[][] matriz) {
         int contador = 0;
@@ -86,7 +85,7 @@ public final class CartonAmericano extends Carton {
 
     @Override
     public String toString() {
-        return "CartonAmericano{" + "premio=" + premio + '}';
+        return super.toString();
     }
 
     @Override
@@ -96,11 +95,19 @@ public final class CartonAmericano extends Carton {
 
     @Override
     public boolean esBingo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for (int i = 0; i < super.getMatriz().length; i++) {
+            for (int j = 0; j < super.getMatriz()[i].length; j++) {
+                if (super.getMatriz()[i][j] != 0) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
-    public static void main(String[] args) {
-        CartonAmericano carton = new CartonAmericano();
-        carton.generarCarton();
-    }
+//    public static void main(String[] args) {
+//        CartonAmericano carton = new CartonAmericano();
+//        carton.generarCarton();
+//        System.out.println(carton.toString());
+//    }
 }
