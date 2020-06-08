@@ -16,8 +16,8 @@ public class BingoEuropeo extends Bingo{
     private CartonEuropeo carton;
     private BomboEuropeo bombo;
     
-    public BingoEuropeo(String id, LocalDate fecha, String idJugador,CartonEuropeo carton, BomboEuropeo bombo) {
-        super(id, fecha, idJugador);
+    public BingoEuropeo(String id,CartonEuropeo carton, BomboEuropeo bombo) {
+        super(id);
         this.carton = carton;
         this.bombo = bombo;
     }

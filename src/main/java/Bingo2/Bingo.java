@@ -6,6 +6,7 @@
 package Bingo2;
 
 import java.time.LocalDate;
+import java.util.Random;
 
 /**
  *
@@ -13,14 +14,15 @@ import java.time.LocalDate;
  */
 public abstract class Bingo {
     
-    private String id;
+    private String nombre;
     private LocalDate fecha;
     private String idJugador;
-
-    public Bingo(String id, LocalDate fecha, String idJugador) {
-        this.id = id;
-        this.fecha = fecha;
-        this.idJugador = idJugador;
+    
+    public Bingo(String nombre) {
+        Random alea = new Random();
+        this.nombre = nombre;
+        this.fecha = LocalDate.now();
+        this.idJugador = Integer.toString(alea.nextInt(99999));
     }
 
     public String getIdJugador() {
@@ -31,12 +33,12 @@ public abstract class Bingo {
         this.idJugador = idJugador;
     }
 
-    public String getId() {
-        return id;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public LocalDate getFecha() {
@@ -49,7 +51,7 @@ public abstract class Bingo {
 
     @Override
     public String toString() {
-        return "Bingo{" + "id=" + id + ", fecha=" + fecha + ", idJugador=" + idJugador + '}';
+        return "Bingo{" + "id=" + nombre + ", fecha=" + fecha + ", idJugador=" + idJugador + '}';
     }
     
     

@@ -22,6 +22,7 @@ public final class CartonAmericano extends Carton {
     public CartonAmericano() {
         super(FILAS, COLUMNAS);
         this.premio = genPatron();
+        generarCarton();
     }
 
     @Override
