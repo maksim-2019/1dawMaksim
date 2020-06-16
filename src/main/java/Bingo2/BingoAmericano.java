@@ -16,6 +16,11 @@ public final class BingoAmericano extends Bingo{
     private CartonAmericano carton;
     private BomboAmericano bombo;
 
+    public BingoAmericano() {
+        super();
+    }
+
+    
     public BingoAmericano(String nombre, CartonAmericano carton, BomboAmericano bombo) {
         super(nombre);
         this.carton = carton;
@@ -28,6 +33,14 @@ public final class BingoAmericano extends Bingo{
 
     public BomboAmericano getBombo() {
         return bombo;
+    }
+
+    public void setCarton(CartonAmericano carton) {
+        this.carton = carton;
+    }
+
+    public void setBombo(BomboAmericano bombo) {
+        this.bombo = bombo;
     }
 
     @Override

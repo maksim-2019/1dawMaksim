@@ -17,12 +17,19 @@ public abstract class Bingo {
     private String nombre;
     private LocalDate fecha;
     private String idJugador;
+
+    public Bingo() {
+        this.nombre = "prueba";
+        this.fecha = LocalDate.now();
+        this.idJugador = "00";
+    }
+    
     
     public Bingo(String nombre) {
         Random alea = new Random();
         this.nombre = nombre;
         this.fecha = LocalDate.now();
-        this.idJugador = Integer.toString(alea.nextInt(99999));
+        this.idJugador = Integer.toString(alea.nextInt(1000));
     }
 
     public String getIdJugador() {
