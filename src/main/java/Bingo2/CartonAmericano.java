@@ -50,7 +50,7 @@ public final class CartonAmericano extends Carton {
     private static Patron genPatron() {
         Random alea = new Random();
 
-        switch (alea.nextInt(5)) {
+        switch (alea.nextInt(4)) {
             case 0:
                 return Patron.CARTON_4PUNTOS;
 
@@ -106,9 +106,9 @@ public final class CartonAmericano extends Carton {
         return true;
     }
 
-//    public static void main(String[] args) {
-//        CartonAmericano carton = new CartonAmericano();
-//        carton.generarCarton();
-//        System.out.println(carton.toString());
-//    }
+    public static void main(String[] args) {
+        CartonAmericano carton = new CartonAmericano();
+        carton.generarCarton();
+        System.out.println(carton.toString());
+    }
 }

@@ -75,8 +75,8 @@ public enum Patron {
             aux.add(new Point(j, 0));
         }
 
-        for (int j = 0; j < 5; j++) {
-            aux.add(new Point(5, j));
+        for (int j = 0; j < 4; j++) {
+            aux.add(new Point(4, j));
         }
 
         return aux;
